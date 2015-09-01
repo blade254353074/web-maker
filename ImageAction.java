@@ -43,7 +43,7 @@ public class ImageAction extends BaseAction implements ModelDriven<Image> {
 			String path = "/uploads/imgs/" + ttsf.format(nt);
 			String imageName = ts + image.getImageFileName().substring(image.getImageFileName().lastIndexOf("."));
 
-			String destPath = ServletActionContext.getServletContext().getRealPath(path);
+			//String destPath = ServletActionContext.getServletContext().getRealPath(path);
 
 			if (null != image.getImage()) {
 				File destFile = new File(new File(destPath), imageName);
