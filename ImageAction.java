@@ -59,8 +59,8 @@ public class ImageAction extends BaseAction implements ModelDriven<Image> {
 					FileUtils.copyFile(image.getImage(), destFile);
 				}
 			}
-			json.put("url", path + "/" + imageName);
-			json.put("state", true);
+			//json.put("url", path + "/" + imageName);
+			//json.put("state", true);
 		}
 		super.writeJson(json);
 	}
