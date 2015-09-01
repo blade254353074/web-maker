@@ -61,7 +61,6 @@ public class ImageAction extends BaseAction implements ModelDriven<Image> {
 			}
 			json.put("url", path + "/" + imageName);
 			json.put("state", true);
-			//ServletActionContext.getResponse().getWriter().write(path + "/" + imageName);
 		}
 		super.writeJson(json);
 	}
