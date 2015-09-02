@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <pre>哈士齐</pre>
-    <p>哈士齐二号</p>
+    <div class="container">
+        <h2 class="text-center">表单</h2>
+        <form id="form">
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input name="name" id="name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <p>性别</p>
+                <label class="radio-inline">
+                    <input name="gender" type="radio" value="man">男</label>
+                <label class="radio-inline">
+                    <input name="gender" type="radio" value="woman">女</label>
+            </div>
+            <div class="form-group">
+                <label for="age">年龄</label>
+                <input name="age" id="age" type="number" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="birth">生日</label>
+                <input type="date" name="birth" id="birth" class="form-control">
+            </div>
+            <div class="form-group">
+                <p>爱好</p>
+                <div class="checkbox">
+                    <label>
+                        <input name="hobby" type="checkbox" value="kill baidu">干掉百度</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="hobby" type="checkbox" value="be a Sibirskiy haski">做一个无忧无虑的哈士齐</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="hobby" type="checkbox" value="tencent is mine">腾讯是我的</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="hobby" type="checkbox" value="first programmer in universe">「亚一程」算什么，我是「宇一程」</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="multi">多选列表</label>
+                <select name="multi" id="multi" class="form-control" multiple>
+                    <option value="001">国产001</option>
+                    <option value="002">国产002</option>
+                    <option value="003">国产003</option>
+                    <option value="004">国产004</option>
+                    <option value="005">国产005</option>
+                    <option value="006">国产006</option>
+                    <option value="007">国产007</option>
+                    <option value="008">国产008</option>
+                    <option value="009">国产009</option>
+                </select>
+            </div>
+            <p>div.form-group>(label[for=""]{}+input[name=""]#.form-control)</p>
+            <p class="text-center">
+                <input id="submit" class="btn btn-info" type="submit" value="提交">
+            </p>
+        </form>
+        <code id="result"></code>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var $form = $('#form'),
+            $submit = $('#submit');
+        $submit.on('click', function(event) {
+            event.preventDefault();
+            var data = $form.serialize();
+            $.ajax({
+                url: 'action',
+                dataType: 'json',
+                data: data,
+            })
+            .done(function(json) {
+                $('#result').html(JSON.stringify(json, null, 4));
+            });
+        });
+    });
+    </script>
 </body>
+
 </html>
