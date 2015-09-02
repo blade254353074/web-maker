@@ -1,0 +1,65 @@
+<div class="user-profile">
+    <h4 class="title">QED团队成员</h4>
+    <div class="row">
+        <p><img src="{{photo}}" class="photo"></p>
+        <div class="simple">
+            <p>
+                <span class="name">姓名：</span>
+                <span><img src="{{avatar}}" class="avatar">{{name}}</span>
+            </p>
+            <p>
+                <span class="name">职位：</span>
+                <span>{{job}}</span>
+            </p>
+            <p>
+                <span class="name">加入时间：</span>
+                <span>{{jointime}}</span>
+            </p>
+            <p>
+                <span class="name">ID：</span>
+                <span>{{id}}</span>
+            </p>
+        </div>
+        <p>
+            <a id="more" class="btn btn-link">查看更多</a>
+        </p>
+        <div id="detail" class="detail">
+            {{if username}}
+            <div class="form-group">
+                <span class="name">用户名：</span>
+                <span>{{username}}</span>
+            </div>
+            {{/if}}
+            {{if nickname}}
+            <div class="form-group">
+                <span class="name">昵称：</span>
+                <span>{{nickname}}</span>
+            </div>
+            {{/if}}
+            {{if birth}}
+            <div class="form-group">
+                <span class="name">生日：</span>
+                <span>{{birth}}</span>
+            </div>
+            {{/if}}
+            {{if from}}
+            <div class="form-group">
+                <span class="name">家乡：</span>
+                <span>{{from}}</span>
+            </div>
+            {{/if}}
+            {{if ability}}
+            <div class="form-group">
+                <span class="name">擅长：</span>
+                <span>{{ability}}</span>
+            </div>
+            {{/if}}
+            {{if profile}}
+            <div class="form-group">
+                <label>成员信息：</label>
+                <p>{{profile}}</p>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,2 @@
+/*TMODJS:{"version":14,"md5":"93ee2c6746f0d94e1f80e7750a205558"}*/
+template('login','<div class="login-form"> <form id="loginForm"> <div class="form-group"> <label for="username">用户名</label> <input id="username" name="username" class="form-control" type="text" autofocus> </div> <div class="form-group"> <label for="password">密码</label> <input id="password" name="password" class="form-control" type="password"> </div> <p id="tip" class="tips"></p> <p class="text-center"> <input type="submit" value="登录" id="login" class="btn btn-primary"></input> </p> </form> </div> ');

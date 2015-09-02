@@ -1,0 +1,42 @@
+<div class="container">
+    {{if !state}}
+    <legend>项目发布</legend>
+    {{/if}}
+    <fieldset id="field">
+        <div class="form-group">
+            <label for="name">项目名称</label>
+            <input value="{{name}}" name="name" id="name" type="text" class="form-control data-upload">
+        </div>
+        <div class="form-group">
+            <label for="time">创建时间</label>
+            <input value="{{time}}" name="time" id="time" type="date" class="form-control data-upload">
+        </div>
+        <div class="form-group">
+            <label for="type">项目类型</label>
+            <input value="{{type}}" name="type" id="type" type="text" class="form-control data-upload">
+        </div>
+        <div class="form-group">
+            <label for="summary">一句话简介</label>
+            <input value="{{summary}}" name="summary" id="summary" type="text" class="form-control data-upload">
+        </div>
+        <div class="form-group">
+            <label for="image">封面上传</label>
+            <div class="file-wrap">
+                <a class="btn btn-success file-btn">
+                    <span>上传文件</span>
+                    <input name="image" id="image" type="file">
+                </a>
+            </div>
+            <img src="{{cover}}" name="cover" id="cover" class="img-upload img-thumbnail">
+        </div>
+        <div class="form-group">
+            <label for="ueditor">项目内容</label>
+            <script type="text/plain" id="ueditor" style="width:100%;min-height:400px;z-index:99;">{{#content}}</script>
+        </div>
+        {{if !state}}
+        <p class="text-right">
+            <button id="submit" class="btn btn-primary">提交</button>
+        </p>
+        {{/if}}
+    </fieldset>
+</div>
