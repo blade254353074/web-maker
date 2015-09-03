@@ -40,18 +40,21 @@
     "proxy-middleware": "^0.13.1",
     "insert-css": "^0.2.0",
     "url": "^0.10.3",
-    "jquery-ajax": "^2.1.4",
-    "vue-component-compiler": "^1.1.10",
-    "vue": "^0.12.12",
     "postcss": "^4.1.16",
     "yargs": "^3.23.0",
-    "vue-resource": "^0.1.13",
-    "vueify": "^1.1.5"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "SebastianBlade",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://git.oschina.net/SebastianBlade/QED-M.git"
+  },
+  "keywords": [
+    "qed-m",
+    "web"
+  ]
 }
