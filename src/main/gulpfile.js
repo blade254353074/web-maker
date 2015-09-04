@@ -14,6 +14,9 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),              // 缓存工具，用于图片
     rename = require('gulp-rename'),            // 重命名工具
     clean = require('gulp-clean'),              // 目录清理工具
+    merge = require('merge2'),                  //
+    postcss = require('gulp-postcss'),          //
+    csswring = require('csswring'),             // 压缩css而不压缩sourcemap
     concat = require('gulp-concat'),            // 多文件合并工具
     sourcemaps = require('gulp-sourcemaps'),    // sourcemap工具
     rev = require('gulp-rev'),                  // 对资源文件添加MD5后缀
@@ -153,7 +156,7 @@ gulp.task('a-css', function() {
             message: 'css 压缩成功!'
         }));
 });
-gulp.task('a-scss2css4rev', ['sass'], function() {
+gulp.task('a-css4rev', ['sass'], function() {
     return gulp.src(admin.css.src)
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ios 6', 'android 2.3.4'))
         .pipe(rename({
@@ -220,14 +223,6 @@ gulp.task('tmodjs', function() {
             output: config.tpl.output   // 输出template.js路径
         }));
 });
-gulp.task('sass', function() {
-    return gulp.src(config.sass.src)
-        .pipe(plumber({
-            errorHandler: errrHandler
-        }))
-        .pipe(sass.sync())
-        .pipe(gulp.dest(config.sass.dest));
-});
 
 gulp.task('html', function() {
     return gulp.src(config.html.src)
@@ -238,12 +233,43 @@ gulp.task('html', function() {
         }));
 });
 
-gulp.task('css', function() {
+gulp.task('sass', function() {
+    return gulp.src(config.sass.src)
+        .pipe(plumber({
+            errorHandler: errrHandler
+        }))
+        .pipe(sourcemaps.init())
+        .pipe(sass.sync())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.sass.dest));
+});
+
+/*gulp.task('css', function() {
     return gulp.src(config.css.src)
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ios 6', 'android 2.3.4'))             // 添加兼容前缀
         .pipe(sourcemaps.init())            // 初始化sourcemap
         .pipe(concat('style.min.css'))      // css合并为style.min.css
-        .pipe(minifycss())                  // 压缩处理成一行
+        //.pipe(minifycss())                  // 压缩处理成一行
+        .pipe(sourcemaps.write())           // 将sourcemap写入文件
+        .pipe(gulp.dest(config.css.dest))   // 输出文件到dest目录
+        .pipe(notify({
+            message: 'css 压缩成功!'
+        }));
+});*/
+
+gulp.task('css', function() {
+    return merge(
+            gulp.src(config.css.src)
+                .pipe(sourcemaps.init()),
+            gulp.src(config.sass.src)
+                .pipe(sourcemaps.init())
+                .pipe(sass.sync())
+                .pipe(sourcemaps.write())
+        )
+        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ios 6', 'android 2.3.4'))             // 添加兼容前缀
+        .pipe(postcss([csswring]))
+        .pipe(concat('style.min.css'))      // css合并为style.min.css
+        //.pipe(minifycss())                  // 压缩处理成一行
         .pipe(sourcemaps.write())           // 将sourcemap写入文件
         .pipe(gulp.dest(config.css.dest))   // 输出文件到dest目录
         .pipe(notify({
@@ -251,7 +277,7 @@ gulp.task('css', function() {
         }));
 });
 
-gulp.task('scss2css4rev', ['sass'], function() {
+gulp.task('css4rev', ['sass'], function() {
     return gulp.src(config.css.src)
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ios 6', 'android 2.3.4'))             // 添加兼容前缀
         .pipe(concat('style.min.css'))      // css合并为style.min.css
@@ -287,7 +313,7 @@ gulp.task('js', function() {
         }));
 });
 
-gulp.task('js4pub', function() {
+gulp.task('js4rev', function() {
     return gulp.src('src/js/index.js')          // 获取src/js/index.js的文件流
         .pipe(plumber({
             errorHandler: errrHandler
@@ -310,7 +336,7 @@ gulp.task('js4pub', function() {
         }));
 });
 
-gulp.task('rev', ['scss2css4rev', 'js4pub'], function() {
+gulp.task('rev', ['css4rev', 'js4rev'], function() {
     return gulp.src([config.rev.src, config.html.src])  // 读取 rev-manifest.json 文件
                                                         // 和需要进行资源名替换的文件
         .pipe(revCollect({
@@ -364,7 +390,7 @@ gulp.task('bs', function() {
     });
 });
 
-gulp.task('browser-sync', ['rev', 'imgs', 'favicon', 'fonts', 'a-scss2css4rev', 'a-js', 'a-imgs', 'a-fonts'], function() {
+gulp.task('browser-sync', ['rev', 'imgs', 'favicon', 'fonts', 'a-css4rev', 'a-js', 'a-imgs', 'a-fonts'], function() {
     gulp.start('bs');
 });
 
