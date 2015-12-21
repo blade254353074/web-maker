@@ -45,8 +45,10 @@
   },
   "devDependencies": {
     "csswring": "^4.0.0",
+    "glob": "^5.0.14",
     "gulp-postcss": "^6.0.0",
-    "merge2": "^0.3.6"
+    "merge2": "^0.3.6",
+    "through2": "^2.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,0 +1,106 @@
+<div class="header">
+    <div class="header-left">
+        <a class="logo" href="/"><span>QED-M</span></a>
+        <div class="project-name">项目：{{name}}</div>
+    </div>
+    <div id="nav" class="header-right clearfix">
+        <ul class="nav pull-left clearfix">
+            <li data-link="pageui"><a href="/#/page/pageui/{{pageId}}">站点</a></li>
+            <li data-link="article"><a href="/#/page/article/{{siteId}}">文章</a></li>
+            <li data-link="photo"><a href="/#/page/photo/{{siteId}}">相册</a></li>
+        </ul>
+        <div class="drop-down pull-right">
+            <div class="title icon icon-menu-hamburger"></div>
+            <ul>
+                <li><a href="/#/site/list"><span class="icon icon-th-list"></span>站点列表</a></li>
+                <li><a href="/#/logout"><span class="icon icon-question-sign"></span>帮助中心</a></li>
+                <li><a href="/#/logout"><span class="icon icon-off"></span>退出</a></li>
+            </ul>
+        </div>
+        <ul class="nav pull-right clearfix">
+            <li data-link="user">
+                <a href="/#/page/user/{{siteId}}">
+                    <span class="icon icon-user"></span>用户
+                </a>
+            </li>
+            <li data-link="plugin">
+                <a href="/#/page/plugin/{{siteId}}">
+                    <span class="icon icon-gift"></span>插件
+                </a>
+            </li>
+            <li data-link="setting">
+                <a href="/#/page/setting/{{siteId}}">
+                    <span class="icon icon-th-large"></span>管理
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="work-bench">
+    <div class="tool-left">
+        <div class="page-area">
+            <div class="page-title">
+                <span>页面管理</span>
+                <div class="page-tool">
+                    <a class="icon icon-plus"></a>
+                    <a class="icon icon-chevron-up"></a>
+                </div>
+            </div>
+            <ul id="pageBox" class="page-box">
+                {{each pages}}
+                <li data-id="{{$value.id}}" {{if $value.active}}class="active" {{/if}}>
+                    <a href="/#/page/pageui/{{$value.id}}">{{$value.name}}</a>
+                    <div class="page-control">
+                        <span class="change icon icon-pencil" title="修改"></span>
+                        <span class="remove icon icon-remove" title="删除"></span>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="drag-area">
+            <ul id="dragBar" class="drag-title">
+                {{each modules}}
+                <li {{if $index===0}}class="active" {{/if}}>{{$value.name}}</li>
+                {{/each}}
+            </ul>
+            <div id="dragBox" class="drag-box">
+                {{each modules}}
+                <ul {{if $index===0}}class="active" {{/if}}>
+                    {{include '../common/module' $value}}
+                </ul>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="stage">
+        <div class="phone">
+            <div class="screen">
+                <div class="address-bar">
+                    <input name="url" type="text" placeholder="搜索或输入网站名称">
+                </div>
+                <div class="browser-area">
+                    <iframe id="browserFrame" src="/mobile/index.html" frameborder="0" height="523" width="100%"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool-right">
+        <div class="option-box">
+            <div class="tab-panel">
+                <input id="optPanel1" name="tabbar" checked type="radio" class="tab-radio">
+                <label for="optPanel1" class="tab-bar">内容</label>
+                <div class="tab-content">
+                    <div id="optionContent" class="tab-wrap"></div>
+                </div>
+            </div>
+            <div class="tab-panel">
+                <input id="optPanel2" name="tabbar" type="radio" class="tab-radio">
+                <label for="optPanel2" class="tab-bar">样式</label>
+                <div class="tab-content">
+                    <div id="styleContent" class="tab-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

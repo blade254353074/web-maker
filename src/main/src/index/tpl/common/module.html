@@ -1,0 +1,10 @@
+{{each list}}
+<li class="drag-item"
+    data-path="{{$value.path}}"
+    data-name="{{$value.name}}"
+    draggable="true">
+    <div class="drag-icon drag-icon-{{$value.name}}"
+         style="background-position:0 -{{$index*65}}px;"></div>
+    <div class="drag-text">{{$value.cname}}</div>
+</li>
+{{/each}}

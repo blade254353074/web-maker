@@ -1,0 +1,41 @@
+<div class="article-list theme{{theme}}">
+    <ul>
+        {{if list.length > 0}}
+            {{if limit<0}}
+                {{each list}}
+                    <li class="clearfix">
+                        <a href="/article/{{$value.id}}">
+                            <h4 class="title single-line">{{$value.title}}</h4>
+                            <div class="cover" style="background-image:url({{$value.cover}})">
+                                <img src="/assets/mobile/imgs/ph_{{ratio}}.png">
+                            </div>
+                            <div class="content">
+                                <div class="summary">{{$value.summary}}</div>
+                            </div>
+                        </a>
+                    </li>
+                {{/each}}
+            {{else}}
+                {{each list}}
+                {{if $index<limit}}
+                    <li class="clearfix">
+                        <a href="/article/{{$value.id}}">
+                            <h4 class="title single-line">{{$value.title}}</h4>
+                            <div class="cover" style="background-image:url({{$value.cover}})">
+                                <img src="/assets/mobile/imgs/ph_{{ratio}}.png">
+                            </div>
+                            <div class="content">
+                                <div class="summary">{{$value.summary}}</div>
+                            </div>
+                        </a>
+                    </li>
+                {{/if}}
+                {{/each}}
+            {{/if}}
+        {{else}}
+            <li class="ph">
+                文章列表为空，请添加文章
+            </li>
+        {{/if}}
+    </ul>
+</div>

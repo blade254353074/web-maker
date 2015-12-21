@@ -1,0 +1,32 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label" for="theme">主题</label>
+        <div class="col-xs-9">
+            <select id="theme" class="form-control">
+                <option value="1" {{if theme===1}} selected {{/if}}>
+                    主题1（图 + 标题、简介）</option>
+                <option value="2" {{if theme===2}} selected {{/if}}>
+                    主题2（标题 + 图、简介）</option>
+                <option value="3" {{if theme===3}} selected {{/if}}>
+                    主题3（标题 + 时间）</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-3 control-label" for="select">图片比例</label>
+        <div class="col-xs-9">
+            <label class="radio-inline">
+                <input type="radio" name="size" value="4t3"
+                    {{if ratio==='4t3'}} checked {{/if}}> 4:3
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="size" value="16t9"
+                    {{if ratio==='16t9'}} checked {{/if}}> 16:9
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="size" value="1t1"
+                    {{if ratio==='1t1'}} checked {{/if}}> 1:1
+            </label>
+        </div>
+    </div>
+</div>

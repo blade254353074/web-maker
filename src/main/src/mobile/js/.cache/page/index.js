@@ -1,0 +1,2 @@
+/*TMODJS:{"version":4,"md5":"af7c855f420c104cc5830c737d6653f4"}*/
+template('page/index','<header class="header"> 头部 </header> <div id="dropArea" class="main-content"></div> <footer class="footer"> 尾部 </footer> ');

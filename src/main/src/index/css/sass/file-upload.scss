@@ -1,0 +1,34 @@
+.file-wrapper {
+    position: relative;
+    display: table;
+    padding-bottom: 30px;
+    .img-thumbnail {
+        border-bottom: none;
+        border-radius: 4px 4px 0 0;
+    }
+    .file-btn {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        padding: 4px 12px;
+        border-radius: 0 0 4px 4px;
+        overflow: hidden;
+        input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 0;
+            padding: 0 !important;
+            margin: 0 !important;
+            font-size: 20em;
+            cursor: pointer;
+        }
+        span {
+            cursor: pointer;
+        }
+    }
+}

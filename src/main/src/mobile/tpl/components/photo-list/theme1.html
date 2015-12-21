@@ -1,0 +1,19 @@
+<div class="photo-list cols-{{cols}} clearfix">
+    <ul>
+        {{if list.length > 0}}
+            {{each list}}
+            <li>
+                <a href="/article/{{id}}">
+                    <div class="pic" style="background-image:url({{$value.pic}})">
+                        <img src="/assets/mobile/imgs/ph_{{ratio}}.png">
+                    </div>
+                </a>
+            </li>
+            {{/each}}
+        {{else}}
+            <li class="ph">
+                图集列表为空，请添加图片
+            </li>
+        {{/if}}
+    </ul>
+</div>

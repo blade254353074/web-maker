@@ -1,0 +1,46 @@
+{
+    "id": "1575888791", // 项目ID
+    "publish": false,
+    "name": "Project Name", // 项目名称
+    "pages": [{
+        "id": "157524328721", //  page_id 页面ID
+        "name": "首页",
+        "active": true
+    }, {
+        "id": "187489327432",
+        "name": "页面一"
+    }, {
+        "id": "116289723542",
+        "name": "页面二"
+    }, {
+        "id": "158920374543",
+        "name": "页面三"
+    }],
+    "modules": [{
+        "name": "内容",
+        "list": [{
+            "id": "148095289422242",    // 控件ID
+            "cname": "文章列表",
+            "name": "article-list",
+            "offset": 65    // 图标Offset
+        }, {
+            "id": "148954239754303",
+            "cname": "图集",
+            "name": "photo-list",
+            "offset": 130
+        }]
+    }, {
+        "name": "排版",
+        "list": []
+    }, {
+        "name": "营销",
+        "list": []
+    }, {
+        "name": "第三方",
+        "list": []
+    }],
+    "user": {
+        "id": "14235323454234",
+        "name": "Sebastian Blade"
+    }
+}

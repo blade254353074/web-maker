@@ -1,0 +1,14 @@
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label" for="limit">条数</label>
+        <div class="col-xs-9">
+            <select id="limit" class="form-control">
+                <option value="2" {{if limit===2}} selected {{/if}}>2条</option>
+                <option value="5" {{if limit===5}} selected {{/if}}>5条</option>
+                <option value="10" {{if limit===10}} selected {{/if}}>10条</option>
+                <option value="20" {{if limit===20}} selected {{/if}}>20条</option>
+                <option value="-1" {{if limit===-1}} selected {{/if}}>无限</option>
+            </select>
+        </div>
+    </div>
+</div>

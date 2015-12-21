@@ -1,0 +1,39 @@
+.photo-list {
+    li {
+        float: left;
+        padding: 10px;
+        &.ph {
+            width: 100% !important;
+            padding: 15px 10px;
+            text-align: center;
+        }
+    }
+    .pic {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        img {
+            width: 100%;
+        }
+    }
+    &.cols-1 {
+        li {
+            width: 100%;
+        }
+    }
+    &.cols-2 {
+        li {
+            width: 50%;
+        }
+    }
+    &.cols-3 {
+        li {
+            width: 33.33%;
+        }
+    }
+    &.cols-4 {
+        li {
+            width: 25%;
+        }
+    }
+}

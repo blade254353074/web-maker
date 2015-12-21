@@ -1,0 +1,40 @@
+.article-list {
+    li {
+        padding: 10px;
+        border-bottom: 1px dashed #eee;
+        &:last-of-type {
+            border-bottom: none;
+        }
+        &.ph {
+            padding: 15px 10px;
+            text-align: center;
+        }
+    }
+    .cover {
+        float: left;
+        width: 68px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        /* 默认 68 * 68 */
+        img {
+            width: 100%;
+        }
+    }
+    .content {
+        margin-left: 78px;
+    }
+    .title {
+        margin-top: 0;
+    }
+    .summary {
+        font-size: 13px;
+        display: -webkit-box;
+        position: relative;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: #888;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
